@@ -335,16 +335,7 @@ jobs:
               $bat1Content = "@echo off`ncd /d D:\Script`nstart `"Residential GUI`" cmd /k python.exe usa_residential_gui.py"
               $bat1Content | Out-File -FilePath "$desktopPath\Launch-Residential.bat" -Encoding ASCII -Force
               
-              $bat2Content = @'
-@echo off
-cd /d D:\Script
-where wt >nul 2>&1
-if %errorlevel% equ 0 (
-    start wt -d "D:\Script" python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py
-) else (
-    start powershell -NoExit -Command "cd D:\Script; python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py"
-)
-'@
+              $bat2Content = "@echo off`ncd /d D:\Script`nwhere wt >nul 2>&1`nif %errorlevel% equ 0 (`n    start wt -d `"D:\Script`" python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`n) else (`n    start powershell -NoExit -Command `"cd D:\Script; python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`"`n)"
               $bat2Content | Out-File -FilePath "$desktopPath\Launch-Trustworthy.bat" -Encoding ASCII -Force
               
               $batAllContent = "@echo off`ncd /d D:\Script`necho Launching Python scripts...`nstart `"Residential GUI`" cmd /k python.exe usa_residential_gui.py`ntimeout /t 2 /nobreak >nul`nstart `"Trustworthy`" cmd /k python.exe FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`necho Scripts launched!"
@@ -441,16 +432,7 @@ if %errorlevel% equ 0 (
           $bat1 = "@echo off`ncd /d D:\Script`nstart `"Residential GUI`" cmd /k python.exe usa_residential_gui.py"
           $bat1 | Out-File -FilePath "$toolboxDesktop\Launch-Residential.bat" -Encoding ASCII -Force
           
-          $bat2 = @'
-@echo off
-cd /d D:\Script
-where wt >nul 2>&1
-if %errorlevel% equ 0 (
-    start wt -d "D:\Script" python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py
-) else (
-    start powershell -NoExit -Command "cd D:\Script; python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py"
-)
-'@
+          $bat2 = "@echo off`ncd /d D:\Script`nwhere wt >nul 2>&1`nif %errorlevel% equ 0 (`n    start wt -d `"D:\Script`" python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`n) else (`n    start powershell -NoExit -Command `"cd D:\Script; python FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`"`n)"
           $bat2 | Out-File -FilePath "$toolboxDesktop\Launch-Trustworthy.bat" -Encoding ASCII -Force
           
           $batAll = "@echo off`ncd /d D:\Script`necho Launching Python scripts...`nstart `"Residential GUI`" cmd /k python.exe usa_residential_gui.py`ntimeout /t 2 /nobreak >nul`nstart `"Trustworthy`" cmd /k python.exe FINAL_3_WINDOWS_TRUSTWORTHY-Parfait.py`necho Scripts launched!"
